@@ -1,2 +1,2 @@
 ## Hi there
-this project contains todo
+this project contains todo application.
