@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function CreateTodo(){
+export function CreateTodo({todos,setTodos}){
     //resct query
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
@@ -40,6 +40,7 @@ export function CreateTodo(){
                 alert("todo added")
             })
         }}>Add a todo</button>
+        
     </div>
 }
 

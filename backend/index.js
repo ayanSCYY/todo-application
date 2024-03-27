@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+let ID=1;
+
 app.post("/todo", async function(req, res) {
     const createPayload = req.body;
     const parsedPayload = createTodo.safeParse(createPayload);
@@ -18,11 +20,14 @@ app.post("/todo", async function(req, res) {
         return;
     }
     // put it in mongodb
-    await todo.create({
+    {await todo.create({
+        ID: ID,
         title: createPayload.title,
         description: createPayload.description,
         completed: false
-    })
+    })}
+    
+    ID++
 
     res.json({
         msg: "Todo created"
@@ -30,10 +35,10 @@ app.post("/todo", async function(req, res) {
 })
 
 app.get("/todos", async function(req, res) {
-    // const todos = await todo.find({});
+     const todos = await todo.find({});
 
     res.json({
-        todos: []
+       todos
     })
 
 })
