@@ -29,6 +29,7 @@ function Cardwrap({children}){
         }}>
           {children}
         </div>
+        
 }
 
 export default App;
