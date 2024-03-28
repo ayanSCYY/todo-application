@@ -1,8 +1,7 @@
 import { useState } from "react";
 function Todos({ todos }) {
     const [clickCount, setClickCount] = useState(0);
-    //const [clickCounts, setClickCounts] = useState(0);
-    // Function to handle click events
+   
     function handleClick() {
       setClickCount(prevCount => prevCount + 1); 
   
@@ -23,6 +22,12 @@ function Todos({ todos }) {
         }
       }, 300);
         
+    }
+    function handleCheckboxChange(id) {
+      setTodos(todos.map(todo => 
+        todo.ID === id ? {...todo, completed: todo.completed} : todo
+      ));
+      
     }
   
     return (
@@ -46,13 +51,7 @@ function Todos({ todos }) {
                   <h3>{todo.ID}.{todo.title}</h3>
                   <p>{todo.description}</p>
                   <p>{todo.completed}</p>
-              {/*    <button  style={{
-                    padding: 10,
-                    margin: 10,
-                               }}
-                    onClick={handleClicks} >more
-                 </button> */}
-
+                  <input type="checkbox" unchecked={!todo.completed} onChange={() => handleCheckboxChange(todo.ID)} />
                </>
               ))}
            

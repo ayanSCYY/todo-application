@@ -10,7 +10,7 @@ const todoSchema=mongoose.Schema({
     ID:Number,
     title:String,
     description:String,
-    completed:Boolean
+    completed:String
 })
 const todo = mongoose.model('todo',todoSchema);
 

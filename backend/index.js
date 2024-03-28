@@ -24,7 +24,7 @@ app.post("/todo", async function(req, res) {
         ID: ID,
         title: createPayload.title,
         description: createPayload.description,
-        completed: false
+        completed:" false "
     })}
     
     ID++
