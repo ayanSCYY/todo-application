@@ -12,38 +12,6 @@ function Todos({ todos }) {
         }
       }, 300);
     }
-    function handleCheckboxChange(id) { 
-
-      const newTodos = todos.map(todo => {
-        if (todo.ID === id) {
-          return {
-            ...todo,
-            completed:"true",
-          };
-        }
-        return todo;
-      });
-      setTodos(newTodos);
-        
-      if(todos.completed==="true"){
-
-        fetch("http://localhost:3000/completed",{
-                method:"DELETE",
-                body:JSON.stringify({
-                   ID:newTodos.ID
-                }) ,
-                headers:{
-                    "Content-Type":"application/json"
-                }
-            })
-            .then(async function(res){
-              const json=await res.json();
-              console.log(json);
-              alert("todo removed")
-          })
-       
-      
-    }}
   
     return (
       <div>
@@ -65,8 +33,23 @@ function Todos({ todos }) {
                 <>
                   <h3>{todo.ID}.{todo.title}</h3>
                   <p>{todo.description}</p>
-                  <p>{todo.completed}</p>
-                   <input type="checkbox" unchecked={todo.completed==="false"} onChange={() => handleCheckboxChange(todo.ID)} />
+                 {/* // <p>{todo.completed}</p> */}
+                   <input type="checkbox" unchecked onChange={()=>{
+                    fetch("http://localhost:3000/completed",{
+                     method:"DELETE",
+                     body:JSON.stringify({
+                     ID:todo.ID,
+                }) ,
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            .then(async function(res){
+                const json=await res.json();
+                console.log(json);
+                alert("todo removed")
+            })
+        }} />
 
                </>
               ))}
