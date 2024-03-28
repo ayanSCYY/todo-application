@@ -12,23 +12,38 @@ function Todos({ todos }) {
         }
       }, 300);
     }
-    function handleClicks(){
-        setClickCounts(prevCount => prevCount + 1); 
-  
-      setTimeout(() => {
-        if (clickCounts === 2) {
-          console.log("Single click detected");
-          setClickCounts(0);
+    function handleCheckboxChange(id) { 
+
+      const newTodos = todos.map(todo => {
+        if (todo.ID === id) {
+          return {
+            ...todo,
+            completed:"true",
+          };
         }
-      }, 300);
+        return todo;
+      });
+      setTodos(newTodos);
         
-    }
-    function handleCheckboxChange(id) {
-      setTodos(todos.map(todo => 
-        todo.ID === id ? {...todo, completed: todo.completed} : todo
-      ));
+      if(todos.completed==="true"){
+
+        fetch("http://localhost:3000/completed",{
+                method:"DELETE",
+                body:JSON.stringify({
+                   ID:newTodos.ID
+                }) ,
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            .then(async function(res){
+              const json=await res.json();
+              console.log(json);
+              alert("todo removed")
+          })
+       
       
-    }
+    }}
   
     return (
       <div>
@@ -51,7 +66,8 @@ function Todos({ todos }) {
                   <h3>{todo.ID}.{todo.title}</h3>
                   <p>{todo.description}</p>
                   <p>{todo.completed}</p>
-                  <input type="checkbox" unchecked={!todo.completed} onChange={() => handleCheckboxChange(todo.ID)} />
+                   <input type="checkbox" unchecked={todo.completed==="false"} onChange={() => handleCheckboxChange(todo.ID)} />
+
                </>
               ))}
            
@@ -59,5 +75,5 @@ function Todos({ todos }) {
         )}
       </div>
     );
-  }
+              }
   export default Todos

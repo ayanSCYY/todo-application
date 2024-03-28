@@ -43,25 +43,25 @@ app.get("/todos", async function(req, res) {
 
 })
 
-app.put("/completed", async function(req, res) {
-    const updatePayload = req.body;
-    const parsedPayload = updateTodo.safeParse(updatePayload);
-    if (!parsedPayload.success) {
+app.delete("/completed", async function(req, res) {
+    const ID = req.body.ID;
+   /*  const parsedPayload = updateTodo.safeParse(updatePayload); */
+   /*  if (!parsedPayload.success) {
         res.status(411).json({
             msg: "You sent the wrong inputs",
         })
         return;
-    }
+    } */
 
-    await todo.update({
-        _id: req.body.id
-    }, {
-      completed: true  
-    })
+    await todo.deleteOne({
+        ID: ID
+    } 
+    )
 
     res.json({
         msg: "Todo marked as completed"
-    })
+    }) 
+
 })
 
 app.listen(3000);
