@@ -14,6 +14,15 @@ const todoSchema=mongoose.Schema({
 })
 const todo = mongoose.model('todo',todoSchema);
 
+const completedtodoSchema=mongoose.Schema({
+    ID:Number,
+    title:String,
+    description:String,
+    completed:String
+})
+const completedtodo = mongoose.model('completedtodo',completedtodoSchema);
+
 module.exports={
-    todo
+    todo,
+    completedtodo
 }

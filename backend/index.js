@@ -1,6 +1,6 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./type");
-const { todo } = require("./db");
+const { todo, completedtodo } = require("./db");
 const cors = require("cors");
 const app = express();
 
@@ -43,25 +43,51 @@ app.get("/todos", async function(req, res) {
 
 })
 
+app.get("/completedtodos", async function(req, res) {
+    const completedtodos = await completedtodo.find({});
+
+   res.json({
+      completedtodos
+      })
+
+})
+
+
 app.delete("/completed", async function(req, res) {
     const ID = req.body.ID;
-   /*  const parsedPayload = updateTodo.safeParse(updatePayload); */
-   /*  if (!parsedPayload.success) {
-        res.status(411).json({
-            msg: "You sent the wrong inputs",
+    
+        const reqdcompletedtask=await todo.findOne({ID})
+    
+    {if(reqdcompletedtask){
+        await completedtodo.create({
+            ID: ID,
+            title: reqdcompletedtask.title,
+            description: reqdcompletedtask.description,
+            completed:" true "
+        })}}
+        await todo.deleteOne({ID})
+        res.json({
+            msg: "Todo deleted"
         })
-        return;
-    } */
-
-    await todo.deleteOne({
-        ID: ID
-    } 
-    )
-
-    res.json({
-        msg: "Todo marked as completed"
-    }) 
-
+    
+})
+app.delete("/todonotcompleted", async function(req, res) {
+    const ID = req.body.ID;
+    
+        const reqduncompletedtask=await completedtodo.findOne({ID})
+    
+    {if(reqduncompletedtask){
+        await todo.create({
+            ID: ID,
+            title: reqduncompletedtask.title,
+            description: reqduncompletedtask.description,
+            completed:"false"
+        })}}
+        await completedtodo.deleteOne({ID})
+        res.json({
+            msg: "Todo deleted"
+        })
+    
 })
 
 app.listen(3000);

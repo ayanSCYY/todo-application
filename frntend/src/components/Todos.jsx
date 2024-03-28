@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function Todos({ todos }) {
+
+function Todos({ todos}) {
   const [clickCount, setClickCount] = useState(0);
 
   function handleClick() {
@@ -37,7 +38,7 @@ function Todos({ todos }) {
       // Handle error gracefully, show user-friendly message, etc.
     });
   };
-
+ 
   return (
     <div>
       <button
@@ -66,8 +67,10 @@ function Todos({ todos }) {
           ))}
         </div>
       )}
-    </div>
+        </div>
+      
   );
 }
+
 
 export default Todos;
