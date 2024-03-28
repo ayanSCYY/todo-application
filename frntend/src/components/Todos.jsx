@@ -30,7 +30,7 @@ function Todos({ todos }) {
       }
       const json = await res.json();
       console.log(json);
-      alert("Todo removed");
+      alert("todo completed");
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
