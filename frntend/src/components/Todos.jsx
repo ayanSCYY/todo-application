@@ -70,7 +70,7 @@ function Todos({ todos}) {
         }}
         onClick={handleClick}
       >
-        Updated Todos
+      Todos
       </button>
 
       {clickCount === 2 && (
