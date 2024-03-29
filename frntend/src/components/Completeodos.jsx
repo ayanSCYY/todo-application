@@ -35,8 +35,29 @@ function Completedtodos({ completedtodos }) {
       })
       .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
-        // Handle error gracefully, show user-friendly message, etc.
       });
+    };
+    const handleCheckboxChange3 = (completedtodoID) => {
+      fetch(`http://localhost:3000/delete`, {
+        method: "DELETE",
+        body: JSON.stringify({
+          ID: completedtodoID,
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(async function(res){
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const json = await res.json();
+        console.log(json);
+        alert("todo deleted");
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
     };
     return <div>
       <button style={{ padding: 10, margin: 10 }} onClick={handleclick2}>completed todos</button>
@@ -46,12 +67,14 @@ function Completedtodos({ completedtodos }) {
         {completedtodos.map(completedtodo => (
           <div key={completedtodo}>
             <h3>{completedtodo.ID}.{completedtodo.title}</h3>
-            <p>{completedtodo.description}</p>
+            <p>{completedtodo.description}
             <input
               type="checkbox"
               checked
               onChange={() => handleCheckboxChange2(completedtodo.ID)}
             />
+            <button onClick={() => handleCheckboxChange3(completedtodo.ID)}>Delete</button>
+            </p>
           </div>
         ))}
         </div>

@@ -9,19 +9,22 @@ function App() {
   const [completedtodos, setCompletedTodos] = useState([]);
 
   {useEffect(() => {
-    fetch("http://localhost:3000/todos")
-      .then(async function(res) {
-        const json = await res.json();
-        setTodos(json.todos);
-      });
+    setInterval(() => {
+      fetch("http://localhost:3000/todos")
+        .then(async function(res) {
+          const json = await res.json();
+          setTodos(json.todos);
+        });
+    },1000)
   }, []);}
 
  {useEffect(() => {
-    fetch("http://localhost:3000/completedtodos")
+    setInterval(() =>{fetch("http://localhost:3000/completedtodos")
       .then(async function(res) {
         const json = await res.json();
         setCompletedTodos(json.completedtodos);
       });
+    },1000)
   }, []);} 
 
   return (
@@ -29,7 +32,6 @@ function App() {
       <CreateTodo />
      <Cardwrap> <div><Todos todos={todos} /></div></Cardwrap>
      <Cardwrap> <div><Completedtodos completedtodos={completedtodos} /></div></Cardwrap>
-     {/*  //{alert("ur uploaded todos")}// */}
     </div>
   );
 }

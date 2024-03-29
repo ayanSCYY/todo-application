@@ -35,8 +35,30 @@ function Todos({ todos}) {
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
-      // Handle error gracefully, show user-friendly message, etc.
+
     });
+  };
+  const handleCheckboxChange4 = (todoID) => {
+    fetch(`http://localhost:3000/delete`, {
+      method: "DELETE",
+      body: JSON.stringify({
+        ID: todoID,
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(async function(res){
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const json = await res.json();
+      console.log(json);
+      alert("todo deleted");
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+  });
   };
  
   return (
@@ -57,12 +79,14 @@ function Todos({ todos}) {
           {todos.map(todo => (
             <div key={todo.ID}>
               <h3>{todo.ID}.{todo.title}</h3>
-              <p>{todo.description}</p>
+              <p>{todo.description}
               <input
                 type="checkbox"
                 unchecked
                 onChange={() => handleCheckboxChange(todo.ID)}
               />
+              <button onClick={() => handleCheckboxChange4(todo.ID)}>Delete</button>
+              </p>
             </div>
           ))}
         </div>

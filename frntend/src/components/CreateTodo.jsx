@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export function CreateTodo({todos,setTodos}){
-    //resct query
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
     return <div>

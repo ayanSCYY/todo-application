@@ -19,7 +19,7 @@ app.post("/todo", async function(req, res) {
         })
         return;
     }
-    // put it in mongodb
+
     {await todo.create({
         ID: ID,
         title: createPayload.title,
@@ -89,5 +89,15 @@ app.delete("/todonotcompleted", async function(req, res) {
         })
     
 })
+app.delete("/delete", async function(req, res) {
+    const ID = req.body.ID;
+    
+        await completedtodo.deleteOne({ID});
+        await todo.deleteOne({ID});
+
+        res.json({
+            msg: "Todo deleted"
+        })
+    })
 
 app.listen(3000);
