@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function CreateTodo({todos,setTodos}){
+ function Createtodo(){
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
     return <div>
@@ -39,7 +39,9 @@ export function CreateTodo({todos,setTodos}){
                 alert("todo added")
             })
         }}>Add a todo</button>
+        <button onClick={()=>{window.location.href="/completedtodos"}}>addedtodos</button>
         
     </div>
 }
 
+export default Createtodo

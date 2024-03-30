@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import '../App.css';
 
 function Todos({ todos}) {
   const [clickCount, setClickCount] = useState(0);
@@ -62,9 +62,10 @@ function Todos({ todos}) {
   };
  
   return (
-    <div>
+    <div className="Todos">
       <button
         style={{
+          opacity: 0.5,
           padding: 10,
           margin: 10,
         }}
@@ -74,7 +75,7 @@ function Todos({ todos}) {
       </button>
 
       {clickCount === 2 && (
-        <div>
+        <div class="Todos">
           <h2>Todos</h2>
           {todos.map(todo => (
             <div key={todo.ID}>

@@ -59,27 +59,27 @@ function Completedtodos({ completedtodos }) {
         console.error('There was a problem with the fetch operation:', error);
     });
     };
-    return <div>
-      <button style={{ padding: 10, margin: 10 }} onClick={handleclick2}>completed todos</button>
+    return( <div>
+      <button style={{opacity: 0.5, padding: 10, margin: 10 }} onClick={handleclick2}>completed todos</button>
     {clickCount2 === 2 && (
       <div>
         <h2>Completed Todos</h2>
-        {completedtodos.map(completedtodo => (
-          <div key={completedtodo}>
-            <h3>{completedtodo.ID}.{completedtodo.title}</h3>
-            <p>{completedtodo.description}
+        {completedtodos.map(completedtodos => (
+          <div key={completedtodos.ID}>
+            <h3>{completedtodos.ID}.{completedtodos.title}</h3>
+            <p>{completedtodos.description}
             <input
               type="checkbox"
               checked
-              onChange={() => handleCheckboxChange2(completedtodo.ID)}
+              onChange={() => handleCheckboxChange2(completedtodos.ID)}
             />
-            <button onClick={() => handleCheckboxChange3(completedtodo.ID)}>Delete</button>
+            <button onClick={() => handleCheckboxChange3(completedtodos.ID)}>Delete</button>
             </p>
           </div>
         ))}
         </div>
-     )}
-     </div>
+     )}<button onClick={()=>{window.location.href="/";}}>reload</button>
+     </div>)
   }
   
   export default Completedtodos;

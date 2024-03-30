@@ -1,49 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { CreateTodo } from './components/CreateTodo';
-import Todos from './components/Todos';
-import Completedtodos from './components/Completeodos';
-
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from './loginpage/Loginpage';
+import Todo from './todo';
+import Addedtodo from './completedtodos';
+import Createtodo from './components/CreateTodo';
+import './App.css';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [completedtodos, setCompletedTodos] = useState([]);
-
-  {useEffect(() => {
-    setInterval(() => {
-      fetch("http://localhost:3000/todos")
-        .then(async function(res) {
-          const json = await res.json();
-          setTodos(json.todos);
-        });
-    },1000)
-  }, []);}
-
- {useEffect(() => {
-    setInterval(() =>{fetch("http://localhost:3000/completedtodos")
-      .then(async function(res) {
-        const json = await res.json();
-        setCompletedTodos(json.completedtodos);
-      });
-    },1000)
-  }, []);} 
-
   return (
-    <div>
-      <CreateTodo />
-     <Cardwrap> <div><Todos todos={todos} /></div></Cardwrap>
-     <Cardwrap> <div><Completedtodos completedtodos={completedtodos} /></div></Cardwrap>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/createtodo" element={<Createtodo />} />
+        <Route path="/todo" element={<Todo />} />
+        <Route path="/completedtodos" element={<Addedtodo />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
-function Cardwrap({children}){
-        return <div style={{
-          border: "1px solid black",
-          padding: 10,
-          margin: 10,
-        }}>
-          {children}
-        </div>
-        
 }
 
 export default App;
