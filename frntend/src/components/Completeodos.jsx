@@ -78,7 +78,7 @@ function Completedtodos({ completedtodos }) {
           </div>
         ))}
         </div>
-     )}<button onClick={()=>{window.location.href="/";}}>reload</button>
+     )}<button style={{opacity: 0.5, padding: 10, margin: 10 }} onClick={()=>{window.location.href="/";}}>reload</button>
      </div>)
   }
   

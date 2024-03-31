@@ -39,8 +39,8 @@ import { useState } from "react";
                 alert("todo added")
             })
         }}>Add a todo</button>
-        <button onClick={()=>{window.location.href="/completedtodos"}}>addedtodos</button>
-        
+        <button style={{opacity: 0.5, padding: 10, margin: 10 }}  onClick={()=>{window.location.href="/todo"}}>addedtodos</button>
+        <button style={{opacity: 0.5, padding: 10, margin: 10 }}  onClick={()=>{window.location.href="/completedtodos"}}>completedtodos</button>
     </div>
 }
 

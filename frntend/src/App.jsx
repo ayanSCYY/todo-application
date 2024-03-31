@@ -4,11 +4,13 @@ import LoginPage from './loginpage/Loginpage';
 import Todo from './todo';
 import Addedtodo from './completedtodos';
 import Createtodo from './components/CreateTodo';
+import Headers from './loginpage/Headers';
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
+    <Headers/>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/createtodo" element={<Createtodo />} />

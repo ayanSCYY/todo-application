@@ -91,7 +91,7 @@ function Todos({ todos}) {
             </div>
           ))}
         </div>
-      )}
+      )}<button style={{opacity: 0.5, padding: 10, margin: 10 }}  onClick={()=>{window.location.href="/completedtodos"}}>completedtodos</button>
         </div>
       
   );

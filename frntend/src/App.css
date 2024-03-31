@@ -5,21 +5,27 @@
     font-family: jotin, sans-serif;
     color: #1b4965;
 }
-
 header {
     margin-top: 40px;
     height: 85px;
     width: 602px;
     margin-bottom: 100px;
 }
-.logo {
-    height: 9px;
-    width: 8px;
-}
+
+
 
 .heading {
     font-size: 64px;
     text-align: center;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.logo {
+    height: 90px;
+    width: 80px;
+    margin-left:40px;
+    justify-content: left;
 }
 
 #main {
@@ -37,7 +43,6 @@ header {
 .title2 {
     font-size: 40px;
 }
-
 .button {
     background-color: #a2d2ee;
     height: 65px;
@@ -46,17 +51,45 @@ header {
     border-radius: 20px;
     border-color: #a2d2ee;
     border-style: none;
-    font-size: 24;
+    font-size: 18px;
 }
 
-img {
+.button2 {
+    background-color: #a2d2ee;
+    height: 65px;
+    width: 133px;
+    margin-top: 35px;
+    border-radius: 20px;
+    border-color: #a2d2ee;
+    border-style: none;
+    font-size: 18px;
+    margin-bottom: 35px;
+    margin-left: 195px;
+    z-index: 23;
+}
+
+
+/* 
+.bck {
     max-width: 40%;
     height: auto;
     position: absolute;
+    margin-right: 0;
     top: 0;
     right: 0;
+} */
+.button3 {
+    background-color: rgba(162, 210, 238);
+    height: 65px;
+    width: 155px;
+    margin-top: 35px;
+    border-radius: 20px;
+    border-color: #a2d2ee;
+    border-style: none;
+    font-size: 18px;
+    margin-bottom: 35px;
+    margin-left: 195px;
 }
-
 a {
     text-decoration: none;
     display: inline-block;
@@ -65,3 +98,17 @@ a :hover {
     background-color: #1b4965;
     color: #a2d2ee;
 }
+.footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    text-align: center;
+  }
