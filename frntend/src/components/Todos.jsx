@@ -2,18 +2,6 @@ import React, { useState } from "react";
 import '../App.css';
 
 function Todos({ todos}) {
-  const [clickCount, setClickCount] = useState(0);
-
-  function handleClick() {
-    setClickCount(prevCount => prevCount + 1);
-
-    setTimeout(() => {
-      if (clickCount === 2) {
-        console.log("Single click detected");
-        setClickCount(0);
-      }
-    }, 300);
-  }
 
   const handleCheckboxChange = (todoID) => {
     fetch(`http://localhost:3000/completed`, {
@@ -63,36 +51,23 @@ function Todos({ todos}) {
  
   return (
     <div className="Todos">
-      <button
-        style={{
-          opacity: 0.5,
-          padding: 10,
-          margin: 10,
-        }}
-        onClick={handleClick}
-      >
-      Todos
-      </button>
-
-      {clickCount === 2 && (
+     
         <div class="Todos">
           <h2>Todos</h2>
           {todos.map(todo => (
             <div key={todo.ID}>
-              <h3>{todo.ID}.{todo.title}</h3>
-              <p>{todo.description}
-              <input
+              <h3>{/* {todo.ID}. */}  <input
                 type="checkbox"
                 unchecked
                 onChange={() => handleCheckboxChange(todo.ID)}
-              />
+              />{todo.title}</h3>
+              <p>{todo.description}
               <button onClick={() => handleCheckboxChange4(todo.ID)}>Delete</button>
               </p>
             </div>
           ))}
         </div>
-      )}<button style={{opacity: 0.5, padding: 10, margin: 10 }}  onClick={()=>{window.location.href="/completedtodos"}}>completedtodos</button>
-        </div>
+     </div>
       
   );
 }
