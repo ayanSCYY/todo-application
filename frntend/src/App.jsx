@@ -5,6 +5,7 @@ import Todo from './todo';
 import Addedtodo from './completedtodos';
 import Createtodo from './components/CreateTodo';
 import Headers from './loginpage/Headers';
+import Editt from './editt';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/createtodo" element={<Createtodo />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="/edit" element={<Editt />} />
         <Route path="/completedtodos" element={<Addedtodo />} />
       </Routes>
     </BrowserRouter>

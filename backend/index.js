@@ -89,6 +89,13 @@ app.delete("/todonotcompleted", async function(req, res) {
         })
     
 })
+app.put("/edit", async function(req,res){
+    const editedword=req.body;
+
+   await todo.updateOne({ID:req.body.ID},{title:req.body.title,description:req.body.description})
+
+
+})
 app.delete("/delete", async function(req, res) {
     const ID = req.body.ID;
     

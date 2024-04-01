@@ -48,7 +48,6 @@ function Todos({ todos}) {
       console.error('There was a problem with the fetch operation:', error);
   });
   };
- 
   return (
     <div className="Todos">
      
@@ -62,6 +61,7 @@ function Todos({ todos}) {
                 onChange={() => handleCheckboxChange(todo.ID)}
               />{todo.title}</h3>
               <p>{todo.description}
+              <button onClick={()=>{window.location.href="/edit"}}>edit</button>
               <button onClick={() => handleCheckboxChange4(todo.ID)}>Delete</button>
               </p>
             </div>
