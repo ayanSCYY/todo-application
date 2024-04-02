@@ -6,7 +6,7 @@ import Footer from "./footer";
 
 function Loginpage() {
   return (
-    <div className="container">
+    <div>
       <Body />
       <Footer/>
     </div>

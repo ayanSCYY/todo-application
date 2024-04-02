@@ -1,20 +1,22 @@
-import React, {useState} from 'react'
-function Edit({todos}){
+
+import React, {useState,useEffect} from 'react';
+
+function Edit({ID}){
     const [title,setTitle]=useState("");    
     const [description,setDescription]=useState("");
+    const [EditID,setEditID]=useState("");
+
     return (<div>
     <input id="title" style={{
         padding:10,
         margin:10,
     }} type="text" placeholder="title" onChange={function(e){
-         const value = e.target.value;
          setTitle(e.target.value);
     }}/><br />
     <input id="desc" style={{
         padding:10,
         margin:10,
     }}  type="text" placeholder="description" onChange={function(e){
-        const value = e.target.value;
         setDescription(e.target.value);
    }}/><br />
 
@@ -22,10 +24,11 @@ function Edit({todos}){
         padding:10,
         margin:10,
     }} onClick={()=>{
+        setEditID({ID});
         fetch("http://localhost:3000/edit",{
             method:"PUT",
             body:JSON.stringify({
-                ID:todos.ID,
+                ID:EditID,
                 title:title,
                 description:description,  
             }) ,

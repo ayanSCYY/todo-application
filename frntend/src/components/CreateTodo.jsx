@@ -1,28 +1,24 @@
 import { useState } from "react";
-
+import fff from './fff.jpg';
  function Createtodo(){
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
-    return <div>
-        <input id="title" style={{
-            padding:10,
-            margin:10,
-        }} type="text" placeholder="title" onChange={function(e){
+    return <div className="container">
+    <div className="left">
+        <div className="txt">Stay on track <br />Finish Strong </div>
+        <div className="cmp">
+        <div id="ttl">Title</div>
+        <input id="desc" type="text" placeholder="title" onChange={function(e){
              const value = e.target.value;
              setTitle(e.target.value);
         }}/><br />
-        <input id="desc" style={{
-            padding:10,
-            margin:10,
-        }}  type="text" placeholder="description" onChange={function(e){
+        <div id="ttl">Description</div>
+        <input id="desc" type="text" placeholder="description" onChange={function(e){
             const value = e.target.value;
             setDescription(e.target.value);
        }}/><br />
 
-        <button style={{
-            padding:10,
-            margin:10,
-        }} onClick={()=>{
+        <a><button className="add"  onClick={()=>{
             fetch("http://localhost:3000/todo",{
                 method:"POST",
                 body:JSON.stringify({
@@ -38,9 +34,11 @@ import { useState } from "react";
                 console.log(json);
                 alert("todo added")
             })
-        }}>Add a todo</button>
-        <button style={{opacity: 0.5, padding: 10, margin: 10 }}  onClick={()=>{window.location.href="/todo"}}>addedtodos</button>
-        <button style={{opacity: 0.5, padding: 10, margin: 10 }}  onClick={()=>{window.location.href="/completedtodos"}}>completedtodos</button>
+        }}>Add a todo</button></a></div>
+    </div>
+    <div className="right">
+        <img src={fff} alt="" />
+    </div>
     </div>
 }
 

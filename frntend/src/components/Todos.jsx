@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../App.css';
+import Edit from './edit';
 
 function Todos({ todos}) {
 
@@ -48,6 +49,11 @@ function Todos({ todos}) {
       console.error('There was a problem with the fetch operation:', error);
   });
   };
+  const handleclick = (todoID) => {
+    const ID=todoID;
+    console.log(ID);
+    window.location.href=`/edit`;
+  }
   return (
     <div className="Todos">
      
@@ -61,12 +67,13 @@ function Todos({ todos}) {
                 onChange={() => handleCheckboxChange(todo.ID)}
               />{todo.title}</h3>
               <p>{todo.description}
-              <button onClick={()=>{window.location.href="/edit"}}>edit</button>
+              <button onClick={()=>handleclick(todo.ID)}>edit</button>
               <button onClick={() => handleCheckboxChange4(todo.ID)}>Delete</button>
               </p>
             </div>
           ))}
         </div>
+        <Edit ID={ID}/>
      </div>
       
   );
