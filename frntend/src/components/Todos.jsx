@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import iii from './iii.jpg';
 import '../App.css';
-import Edit from './edit';
+/* import Edit from './edit'; */
 
 function Todos({ todos}) {
 
@@ -55,26 +56,36 @@ function Todos({ todos}) {
     window.location.href=`/edit`;
   }
   return (
-    <div className="Todos">
-     
-        <div class="Todos">
-          <h2>Todos</h2>
+    <div className="cntainer">
+     <div className="left2">
+        <div class="urTodos">
+         <div className="txxt"> your<br/>Todos</div>
+          </div>
           {todos.map(todo => (
-            <div key={todo.ID}>
-              <h3>{/* {todo.ID}. */}  <input
+            <div>
+              <div className="tts">
+              <div className="content" key={todo.ID}>
+              {/* {todo.ID}. */}
+              <div className="top">
+                <input className="chkbx"
                 type="checkbox"
                 unchecked
                 onChange={() => handleCheckboxChange(todo.ID)}
-              />{todo.title}</h3>
-              <p>{todo.description}
-              <button onClick={()=>handleclick(todo.ID)}>edit</button>
-              <button onClick={() => handleCheckboxChange4(todo.ID)}>Delete</button>
-              </p>
-            </div>
+              />{todo.title}</div>
+              <div className="bot">
+              {todo.description}</div></div> 
+              <div className="cbutton">
+              <a><button onClick={()=>handleclick(todo.ID)}>edit</button></a>
+              <a><button onClick={() => handleCheckboxChange4(todo.ID)}>Delete</button></a>
+              </div>
+              </div>
+            </div> 
           ))}
-        </div>
-        <Edit ID={ID}/>
-     </div>
+      </div>
+      <div className="right2">
+      <img src={iii} alt="" />
+      </div>
+      </div>
       
   );
 }

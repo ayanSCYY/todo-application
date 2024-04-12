@@ -1,4 +1,4 @@
-
+/* 
 import React, {useState,useEffect} from 'react';
 
 function Edit({ID}){
@@ -45,4 +45,4 @@ function Edit({ID}){
      </div> 
     )
 }
-export default Edit
+export default Edit */

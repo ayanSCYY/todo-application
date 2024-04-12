@@ -5,6 +5,7 @@ import fff from './fff.jpg';
     const [description,setDescription]=useState("")
     return <div className="container">
     <div className="left">
+        <div className="www">
         <div className="txt">Stay on track <br />Finish Strong </div>
         <div className="cmp">
         <div id="ttl">Title</div>
@@ -34,8 +35,8 @@ import fff from './fff.jpg';
                 console.log(json);
                 alert("todo added")
             })
-        }}>Add a todo</button></a></div>
-    </div>
+        }}>Addtodo</button></a></div>
+    </div></div>
     <div className="right">
         <img src={fff} alt="" />
     </div>

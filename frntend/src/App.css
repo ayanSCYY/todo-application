@@ -28,12 +28,21 @@ header {
     justify-content: left;
 }
 
+.body{
+  width: 100%;
+  background: url(./loginpage/vvv.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 824px;
+}
+
 #main {
     width: 436px;
     height: 431px;
     margin-top: 100px;
     text-align: left;
     margin-left: 100px;
+    transform: translateY(100px);
 }
 
 .title {
@@ -145,8 +154,18 @@ a :hover {
     width: 45%;
     height: 100%;
     background-color: rgba(166, 222, 247, 0.81);
-    border-radius: 20px;
+    border-top-right-radius: 20px;
     
+  }
+  .www{
+    background-color: rgba(166, 222, 247, 0.81); 
+    width: 80%;
+    margin-left: 50px;
+    padding: 10px;
+    margin-top: 100px;
+    border-radius: 30px;
+    box-shadow: 0 0 25px #6b95b3;
+
   }
   .txt{
     font-size: 48px;
@@ -161,7 +180,7 @@ a :hover {
     flex-direction: column;
   }
   .cmp #ttl{
-    font-size: 45px;
+    font-size: 30px;
   }
   .cmp #desc{
     height: 85px;
@@ -174,15 +193,16 @@ a :hover {
     text-align: center;
   }
 .add{
-    height: 65px;
-    width: 183px;
+    height: 50px;
+    width: 133px;
     background-color: #c9c4cb;
     border-radius: 10px;
     border: none;
     margin-top: 30px;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     transition: 0.5s;
+    margin-left: 20px;
 }
 .add:hover{
     transform: scale(1.1);
@@ -197,5 +217,173 @@ a :hover {
     width: 842px;
     height: 824px;
     position: relative;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
   }
+
+  .cntainer2{
+    width: 100vw;
+    display: flex;
+    height: 824px;
+  }
+  .left3{
+    width: 60%;
+  }
+  .urTodos2{
+    background-color: rgb(164, 164, 164);
+    height: 250px;
+    border-radius: 50%;
+    width: 330px;
+    transform: translateX(-153px);
+    z-index: 10;
+  }
+  .txxt2{
+    color: white;
+    z-index: 100;
+  }
+  .tts2{
+    display: flex;
+    height: 280px;
+
+  }
+  .content2{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 40px;
+  }
+  .cbutton2{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .cbutton2 button{
+    border:none;
+    border-radius: 10px;
+    margin: 06px 10px;
+    height: 43px;
+    width: 110px;
+    background-color: #C9C4CB;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+  .cbutton2 button:hover{
+    transform: scale(1.1);
+    
+    background-color: #1b4965;
+    
+
+  }
+  .top2{
+    height: 40px;
+    font-size: 30px;
+  
+  }
+  .bot2{
+    height: 40px;
+    font-size: 20px;
+    margin-left: 45px;
+  }
+.chkbx2{
+  height: 25px;
+  width: 25px;
+  margin: 10px 10px;
+}
+/* .bot{
+ /*  margin: 0px 10px; 
+ */
+.right3{
+  border-radius: 20px;
+  left: 40%;
+  width: 45%;
+  height: 100%;
+}
+.right3 img{
+  width: 842px;
+  height: 824px;
+  position: relative;
+  border-top-left-radius: 20px;
+}
+
+.cntainer{
+  width: 100vw;
+  display: flex;
+  height: 824px;
+}
+.left2{
+  width: 60%;
+}
+.urTodos{
+  background-color: rgb(164, 164, 164);
+  height: 250px;
+  border-radius: 50%;
+  width: 330px;
+  transform: translateX(-153px);
+  z-index: 10;
+}
+.txxt{
+  color: white;
+  z-index: 100;
+}
+.tts{
+  display: flex;
+  height: 280px;
+
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 40px;
+}
+.cbutton{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.cbutton button{
+  border:none;
+  border-radius: 10px;
+  margin: 06px 10px;
+  height: 43px;
+  width: 110px;
+  background-color: #C9C4CB;
+  font-weight: bold;
+  transition: 0.5s;
+}
+.cbutton button:hover{
+  transform: scale(1.1);
+  
+  background-color: #1b4965;
+  
+
+}
+.top{
+  height: 40px;
+  font-size: 30px;
+
+}
+.bot{
+  height: 40px;
+  font-size: 20px;
+  margin-left: 45px;
+}
+.chkbx{
+height: 25px;
+width: 25px;
+margin: 10px 10px;
+}
+/* .bot{
+/*  margin: 0px 10px; 
+*/
+.right2{
+border-radius: 20px;
+left: 40%;
+width: 45%;
+height: 100%;
+}
+.right2 img{
+width: 842px;
+height: 824px;
+position: relative;
+border-top-left-radius: 20px;
+}

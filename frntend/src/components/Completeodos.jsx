@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import vvvv from "./vvvv.jpg";
+import '../App.css';
 function Completedtodos({ completedtodos }) {
   
     const handleCheckboxChange2 = (completedtodoID) => {
@@ -45,23 +47,35 @@ function Completedtodos({ completedtodos }) {
         console.error('There was a problem with the fetch operation:', error);
     });
     };
-    return( <div>
-      <div>
-        <h2>Completed Todos</h2>
-        {completedtodos.map(completedtodos => (
-          <div key={completedtodos.ID}>
-            <h3>{/* {completedtodos.ID}. */}<input
-              type="checkbox"
-              checked
-              onChange={() => handleCheckboxChange2(completedtodos.ID)}
-            />{completedtodos.title}</h3>
-            <p>{completedtodos.description}
-            
-            <button onClick={() => handleCheckboxChange3(completedtodos.ID)}>Delete</button>
-            </p>
-          </div>
-        ))}
-        </div>
+    return(  <div className="cntainer2">
+    <div className="left3">
+       <div class="urTodos2">
+        <div className="txxt2"> your<br/>Todos</div>
+         </div>
+         {completedtodos.map(completedtodos => (
+           <div>
+             <div className="tts2">
+             <div className="content2" key={completedtodos.ID}>
+             {/* {todo.ID}. */}
+             <div className="top2">
+               <input className="chkbx2"
+               type="checkbox"
+               checked
+               onChange={() => handleCheckboxChange2(completedtodos.ID)}
+             />{completedtodos.title}</div>
+             <div className="bot2">
+             {completedtodos.description}</div></div> 
+             <div className="cbutton2">
+            {/*  <a><button onClick={()=>handleclick(todo.ID)}>edit</button></a> */}
+              <a><button onClick={() => handleCheckboxChange3(completedtodos.ID)}>Delete</button></a> 
+             </div>
+             </div>
+           </div> 
+         ))}
+     </div>
+     <div className="right3">
+     <img src={vvvv} alt="" />
+     </div>
      </div>)
   }
   
