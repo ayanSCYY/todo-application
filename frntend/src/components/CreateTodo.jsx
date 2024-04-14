@@ -10,12 +10,12 @@ import fff from './fff.jpg';
         <div className="cmp">
         <div id="ttl">Title</div>
         <input id="desc" type="text" placeholder="title" onChange={function(e){
-             const value = e.target.value;
+             
              setTitle(e.target.value);
         }}/><br />
         <div id="ttl">Description</div>
         <input id="desc" type="text" placeholder="description" onChange={function(e){
-            const value = e.target.value;
+            
             setDescription(e.target.value);
        }}/><br />
 

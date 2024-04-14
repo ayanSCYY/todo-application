@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import vvvv from "./vvvv.jpg";
 import '../App.css';
+import PropTypes from 'prop-types';
 function Completedtodos({ completedtodos }) {
   
     const handleCheckboxChange2 = (completedtodoID) => {
@@ -49,11 +49,11 @@ function Completedtodos({ completedtodos }) {
     };
     return(  <div className="cntainer2">
     <div className="left3">
-       <div class="urTodos2">
+       <div className="urTodos2">
         <div className="txxt2"> your<br/>Todos</div>
          </div>
          {completedtodos.map(completedtodos => (
-           <div>
+          <div key={completedtodos.ID}>
              <div className="tts2">
              <div className="content2" key={completedtodos.ID}>
              {/* {todo.ID}. */}
@@ -79,4 +79,14 @@ function Completedtodos({ completedtodos }) {
      </div>)
   }
   
+  Completedtodos.propTypes = {
+    completedtodos: PropTypes.arrayOf(
+      PropTypes.shape({
+        ID: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        // Add other expected properties here
+      })
+    ).isRequired
+  };
   export default Completedtodos;

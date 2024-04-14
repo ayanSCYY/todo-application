@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import iii from './iii.jpg';
 import '../App.css';
 /* import Edit from './edit'; */
@@ -58,18 +58,17 @@ function Todos({ todos}) {
   return (
     <div className="cntainer">
      <div className="left2">
-        <div class="urTodos">
+        <div className="urTodos">
          <div className="txxt"> your<br/>Todos</div>
           </div>
           {todos.map(todo => (
-            <div>
+            <div key="todo.ID">
               <div className="tts">
               <div className="content" key={todo.ID}>
               {/* {todo.ID}. */}
               <div className="top">
                 <input className="chkbx"
                 type="checkbox"
-                unchecked
                 onChange={() => handleCheckboxChange(todo.ID)}
               />{todo.title}</div>
               <div className="bot">
@@ -89,6 +88,8 @@ function Todos({ todos}) {
       
   );
 }
-
+Todos.propTypes = {
+  todos: PropTypes.array.isRequired
+};
 
 export default Todos;
